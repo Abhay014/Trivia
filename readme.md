@@ -1,6 +1,14 @@
 TRIVIA
-this project is call trivia.
+this project is called trivia.
 this project provides a simple MERN stack web application.
+
+Provided features:
+
+1. Login
+2. Registration
+3. Authentication
+4. JWT token verification
+
 Getting started:
 Base:
 
