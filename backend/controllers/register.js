@@ -3,6 +3,8 @@ const  userModel = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const env = require('dotenv')
+env.config();
 module.exports.register = async (req, res) => {
     try {
         const userData = req.body;
@@ -30,7 +32,7 @@ module.exports.register = async (req, res) => {
             delete userData.password;
 
           
-        var token = await jwt.sign({ userData }, "hello", {
+        var token = await jwt.sign({ userData }, process.env.JWT_SECRET_KEY, {
             expiresIn: "1d",
           });
           return res

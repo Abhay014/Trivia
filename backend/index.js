@@ -29,6 +29,17 @@ app.use(express.json({ extended: true }));
 
 
 
+const PORT = 8004;
+
+app.listen(PORT, (error) => {
+  if (!error) {
+    console.log(
+      "Server is Successfully Running, and App is listening on port " + PORT
+    );
+  } else console.log("Error occurred, server can't start", error);
+});
+
+
 // home route
 
 app.get("/", (req, res) => {
@@ -36,6 +47,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/trivia", triviaRoute);
+
 
 // connecting mongoose with mongodb
 mongoose.set("strictQuery", true);
@@ -64,13 +76,3 @@ db.on("open", () => {
 });
 
 
-
-const PORT = 8004;
-
-app.listen(PORT, (error) => {
-  if (!error) {
-    console.log(
-      "Server is Successfully Running, and App is listening on port " + PORT
-    );
-  } else console.log("Error occurred, server can't start", error);
-});
